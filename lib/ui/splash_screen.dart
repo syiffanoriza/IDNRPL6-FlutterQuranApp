@@ -24,15 +24,24 @@ class SplashScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 28,
                 ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 16,
               ),
               Text(
-                'Learn Quran and Recite once everyday',
+                'Learn Quran and\nRecite once everyday',
                 style: GoogleFonts.poppins(
                   color: secondary,
                   fontSize: 18,
                 ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 50,
               ),
               Stack(
+                clipBehavior: Clip.none,
                 children: [
                   Container(
                     height: 450,
@@ -41,11 +50,11 @@ class SplashScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                       color: primary,
                     ),
-                    child: SvgPicture.asset('assets/svg/splash.svg'),
+                    child: SvgPicture.asset('/svg/splash.svg'),
                   ),
                   Positioned(
                     left: 0,
-                    bottom: 0,
+                    bottom: -30,
                     right: 0,
                       child: Center(
                         child: GestureDetector(
@@ -56,8 +65,8 @@ class SplashScreen extends StatelessWidget {
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 50,
-                              vertical: 50,
+                              horizontal: 40,
+                              vertical: 15,
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
