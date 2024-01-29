@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quranapp/global.dart';
+import 'package:flutter_quranapp/ui/home_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -29,6 +31,51 @@ class SplashScreen extends StatelessWidget {
                   color: secondary,
                   fontSize: 18,
                 ),
+              ),
+              Stack(
+                children: [
+                  Container(
+                    height: 450,
+                    width: 450,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: primary,
+                    ),
+                    child: SvgPicture.asset('assets/svg/splash.svg'),
+                  ),
+                  Positioned(
+                    left: 0,
+                    bottom: 0,
+                    right: 0,
+                      child: Center(
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 50,
+                              vertical: 50,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: button,
+                            ),
+                            child: Text(
+                              'Get Started',
+                              style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ),
+                ],
               ),
             ],
           ),
