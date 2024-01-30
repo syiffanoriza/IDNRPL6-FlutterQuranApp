@@ -50,7 +50,7 @@ class SplashScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                       color: primary,
                     ),
-                    child: SvgPicture.asset('/svg/splash.svg'),
+                    child: SvgPicture.asset('/svg/images/splash.svg'),
                   ),
                   Positioned(
                     left: 0,

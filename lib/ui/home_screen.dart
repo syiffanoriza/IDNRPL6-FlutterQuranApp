@@ -12,17 +12,49 @@ class HomeScreen extends StatelessWidget {
       appBar: _appBar(),
       bottomNavigationBar: _bottomNavigationBar(),
       backgroundColor: Colors.white,
-      body: Text('Home Screen'),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Assalamualaikum',
+              style: GoogleFonts.poppins(
+                color: secondary,
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            Text(
+              'Username',
+              style: GoogleFonts.poppins(
+                color: primary,
+                fontSize: 24,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            Stack(
+
+            )
+          ],
+        ),
+      ),
     );
   }
 
   BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
     items: [
-      _bottomNavigationBarItem(icon: '/svg/quran.svg', label: 'Quran'),
-      _bottomNavigationBarItem(icon: '/svg/lightbulb.svg', label: 'Lightbulb'),
-      _bottomNavigationBarItem(icon: '/svg/prayer.svg', label: 'Prayer'),
-      _bottomNavigationBarItem(icon: '/svg/doa.svg', label: 'Doa'),
-      _bottomNavigationBarItem(icon: '/svg/bookmark.svg', label: 'Bookmark'),
+      _bottomNavigationBarItem(icon: '/svg/icons/quran.svg', label: 'Quran'),
+      _bottomNavigationBarItem(icon: '/svg/icons/lightbulb.svg', label: 'Lightbulb'),
+      _bottomNavigationBarItem(icon: '/svg/icons/prayer.svg', label: 'Prayer'),
+      _bottomNavigationBarItem(icon: '/svg/icons/doa.svg', label: 'Doa'),
+      _bottomNavigationBarItem(icon: '/svg/icons/bookmark.svg', label: 'Bookmark'),
     ],
   );
 
@@ -46,7 +78,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         IconButton(
             onPressed: (() => {}),
-            icon: SvgPicture.asset('/svg/menu.svg')
+            icon: SvgPicture.asset('/svg/icons/menu.svg')
         ),
         const SizedBox(
           width: 24,
@@ -62,7 +94,7 @@ class HomeScreen extends StatelessWidget {
         const Spacer(),
         IconButton(
             onPressed: (() => {}),
-            icon: SvgPicture.asset('/svg/search.svg'))
+            icon: SvgPicture.asset('/svg/icons/search.svg'))
       ],
     ),
   );

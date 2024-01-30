@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quranapp/ui/splash_screen.dart';
 
 void main() {
+  debugPrint = (String? message, {int? wrapWidth}) => {};
   runApp(const MyApp());
 }
 
