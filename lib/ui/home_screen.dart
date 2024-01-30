@@ -10,10 +10,34 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
+      bottomNavigationBar: _bottomNavigationBar(),
       backgroundColor: Colors.white,
       body: Text('Home Screen'),
     );
   }
+
+  BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
+    items: [
+      _bottomNavigationBarItem(icon: '/svg/quran.svg', label: 'Quran'),
+      _bottomNavigationBarItem(icon: '/svg/lightbulb.svg', label: 'Lightbulb'),
+      _bottomNavigationBarItem(icon: '/svg/prayer.svg', label: 'Prayer'),
+      _bottomNavigationBarItem(icon: '/svg/doa.svg', label: 'Doa'),
+      _bottomNavigationBarItem(icon: '/svg/bookmark.svg', label: 'Bookmark'),
+    ],
+  );
+
+  BottomNavigationBarItem _bottomNavigationBarItem({required String icon, required String label}) =>
+  BottomNavigationBarItem(
+      icon: SvgPicture.asset(
+        icon,
+        color: secondary,
+      ),
+    activeIcon: SvgPicture.asset(
+      icon,
+      color: primary,
+    ),
+    label: label
+  );
 
   AppBar _appBar() => AppBar(
     backgroundColor: Colors.white,
