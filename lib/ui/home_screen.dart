@@ -14,38 +14,96 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Assalamualaikum',
-              style: GoogleFonts.poppins(
-                color: secondary,
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Text(
-              'Username',
-              style: GoogleFonts.poppins(
-                color: primary,
-                fontSize: 24,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Stack(
-
-            )
-          ],
-        ),
+        child: _greeting()
       ),
     );
+  }
+
+  Column _greeting() {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Assalamualaikum',
+            style: GoogleFonts.poppins(
+              color: secondary,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            'Username',
+            style: GoogleFonts.poppins(
+              color: primary,
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          _lastRead()
+        ],
+      );
+  }
+
+  Stack _lastRead() {
+    return Stack(
+          children: [
+            Container(
+              height: 131,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [gradient1, gradient2]
+                )
+              ),
+            ),
+            Positioned(
+                bottom: 0,
+                right: 0,
+                child: SvgPicture.asset('/svg/images/banner.svg')),
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SvgPicture.asset('/svg/icons/book.svg'),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      Text(
+                        'Last Read',
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Al-Fatiah',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        );
   }
 
   BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
