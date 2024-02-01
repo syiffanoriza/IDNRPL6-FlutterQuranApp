@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quranapp/global.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,12 +14,43 @@ class HomeScreen extends StatelessWidget {
       appBar: _appBar(),
       bottomNavigationBar: _bottomNavigationBar(),
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        child: _greeting()
+      body: DefaultTabController(
+        length: 4,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          child: NestedScrollView(
+              headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+                SliverToBoxAdapter(
+                  child: _greeting(),
+                ),
+                SliverAppBar(
+                  automaticallyImplyLeading: false,
+                  pinned: true,
+                  bottom: _tab(),
+                ),
+              ],
+              body: Container()
+          ),
+        ),
       ),
     );
   }
+
+  TabBar _tab() => TabBar(tabs: [
+    _tabItem(label: 'Surah'),
+    _tabItem(label: 'Para'),
+    _tabItem(label: 'Page'),
+    _tabItem(label: 'Hijb'),
+  ]);
+
+  Tab _tabItem({required String label}) =>
+      Tab(child: Text(
+        label,
+        style: GoogleFonts.poppins(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ));
 
   Column _greeting() {
     return Column(
@@ -37,7 +70,6 @@ class HomeScreen extends StatelessWidget {
           Text(
             'Username',
             style: GoogleFonts.poppins(
-              color: primary,
               fontSize: 24,
               fontWeight: FontWeight.bold
             ),
@@ -45,7 +77,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 24,
           ),
-          _lastRead()
+          _lastRead(),
         ],
       );
   }
@@ -69,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                 right: 0,
                 child: SvgPicture.asset('/svg/images/banner.svg')),
             Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -92,10 +124,21 @@ class HomeScreen extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'Al-Fatiah',
+                    'Al-Fatihah',
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    'Ayah No. 1',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                       color: Colors.white,
                     ),
                   )
