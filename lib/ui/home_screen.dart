@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_quranapp/global.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,7 +24,10 @@ class HomeScreen extends StatelessWidget {
                 SliverAppBar(
                   automaticallyImplyLeading: false,
                   pinned: true,
-                  bottom: _tab(),
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(0),
+                      child: _tab()
+                  ),
                 ),
               ],
               body: Container()
@@ -41,7 +42,14 @@ class HomeScreen extends StatelessWidget {
     _tabItem(label: 'Para'),
     _tabItem(label: 'Page'),
     _tabItem(label: 'Hijb'),
-  ]);
+  ],
+  indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(
+      width: 4,
+      color: primary,
+  ),
+    insets: const EdgeInsets.symmetric(horizontal: 60),
+  ),);
 
   Tab _tabItem({required String label}) =>
       Tab(child: Text(
